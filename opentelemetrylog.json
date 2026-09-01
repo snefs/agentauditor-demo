@@ -1,0 +1,100 @@
+{
+  "resourceSpans": [
+    {
+      "resource": {
+        "attributes": [
+          { "key": "service.name", "value": { "stringValue": "support-agent" } },
+          { "key": "deployment.environment", "value": { "stringValue": "demo" } }
+        ]
+      },
+      "scopeSpans": [
+        {
+          "scope": { "name": "support-agent.harness", "version": "1.0.0" },
+          "spans": [
+            {
+              "traceId": "7f3a9b1c2d4e5f60718293a4b5c6d7e8",
+              "spanId": "0000000000000001",
+              "name": "agent.run",
+              "kind": "INTERNAL",
+              "startTimeUnixNano": "1788256800000000000",
+              "endTimeUnixNano": "1788256815000000000",
+              "status": { "code": "OK" }
+            },
+            {
+              "traceId": "7f3a9b1c2d4e5f60718293a4b5c6d7e8",
+              "spanId": "0000000000000002",
+              "name": "model.plan",
+              "kind": "CLIENT",
+              "startTimeUnixNano": "1788256801000000000",
+              "endTimeUnixNano": "1788256804000000000",
+              "status": { "code": "OK" }
+            },
+            {
+              "traceId": "7f3a9b1c2d4e5f60718293a4b5c6d7e8",
+              "spanId": "0000000000000003",
+              "name": "search.customer",
+              "kind": "CLIENT",
+              "startTimeUnixNano": "1788256805000000000",
+              "endTimeUnixNano": "1788256807000000000",
+              "status": { "code": "OK" }
+            },
+            {
+              "traceId": "7f3a9b1c2d4e5f60718293a4b5c6d7e8",
+              "spanId": "0000000000000004",
+              "name": "search.customer.retry",
+              "kind": "CLIENT",
+              "startTimeUnixNano": "1788256808000000000",
+              "endTimeUnixNano": "1788256810000000000",
+              "status": { "code": "ERROR", "message": "Customer index timeout" }
+            },
+            {
+              "traceId": "7f3a9b1c2d4e5f60718293a4b5c6d7e8",
+              "spanId": "0000000000000005",
+              "name": "approval.request",
+              "kind": "INTERNAL",
+              "startTimeUnixNano": "1788256810000000000",
+              "endTimeUnixNano": "1788256811000000000",
+              "status": { "code": "OK" }
+            },
+            {
+              "traceId": "7f3a9b1c2d4e5f60718293a4b5c6d7e8",
+              "spanId": "0000000000000006",
+              "name": "search.customer",
+              "kind": "CLIENT",
+              "startTimeUnixNano": "1788256811000000000",
+              "endTimeUnixNano": "1788256813000000000",
+              "status": { "code": "OK" }
+            },
+            {
+              "traceId": "7f3a9b1c2d4e5f60718293a4b5c6d7e8",
+              "spanId": "0000000000000007",
+              "name": "model.compose",
+              "kind": "CLIENT",
+              "startTimeUnixNano": "1788256812000000000",
+              "endTimeUnixNano": "1788256815000000000",
+              "status": { "code": "OK" }
+            },
+            {
+              "traceId": "7f3a9b1c2d4e5f60718293a4b5c6d7e8",
+              "spanId": "0000000000000008",
+              "name": "ticket.update",
+              "kind": "CLIENT",
+              "startTimeUnixNano": "1788256813000000000",
+              "endTimeUnixNano": "1788256814000000000",
+              "status": { "code": "OK" }
+            },
+            {
+              "traceId": "7f3a9b1c2d4e5f60718293a4b5c6d7e8",
+              "spanId": "0000000000000009",
+              "name": "ticket.update.retry",
+              "kind": "CLIENT",
+              "startTimeUnixNano": "1788256814000000000",
+              "endTimeUnixNano": "1788256815000000000",
+              "status": { "code": "OK" }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
