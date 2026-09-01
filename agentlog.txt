@@ -1,18 +1,76 @@
-game id,cat,name,description,start,end,duration
-A001,rendering,"ensure all items at top layer & always visible + make environment endless scrollable","Move collectible items to a top screen-space layer so they are always visible (never cropped), and make the environment endlessly scrollable by removing world/camera bounds and wrapping items toroidally so they repeat infinitely as the player drifts.",2026-08-29 22:03:39,2026-08-29 22:07:36,237
-A002,ui,"make level selector beautiful and easy to read, grouped per 10 levels in collapsible containers","Redesign the level selector to be beautiful and easy to read, with levels grouped into 10 collapsible sections (one per 10 levels), using a space-themed card layout with larger, readable orbs.",2026-08-29 22:08:43,2026-08-29 22:09:52,69
-A003,rendering,"more planets in different colors + center icon in collectible balloon + nice explosion on avatar contact","Add more planets in different colors to the cosmic sky, center the shape icon inside the collectible orbs (fixing a double-translate offset), and make a nicer explosion effect when the avatar collects an item.",2026-08-29 22:12:47,2026-08-29 22:15:03,136
-A004,ui,"cartoony colorful level selector + settings screen (fx/music levels + avatar color)","Give the level selector a more colourful, cartoon-like look, and add a settings screen where the player can adjust FX and music volume levels and choose the avatar colour, all persisted.",2026-08-29 22:17:42,2026-08-29 22:21:31,229
-A005,rendering,"unique planet colours + horizontally aligned rings","Ensure every planet has a unique colour within a celestial tile (shuffled colour pool), and make each planet's ring always horizontally aligned left-to-right instead of randomly rotated.",2026-08-29 22:23:00,2026-08-29 22:23:51,51
-A006,ui,"settings via menu button + fix FX slider and avatar colour","Access settings through a PopupMenuButton (with a Settings entry) instead of direct gear buttons; fix the FX volume slider not updating and the avatar colour not being settable (both caused by widgets missing a ListenableBuilder so they never rebuild).",2026-08-29 22:27:02,2026-08-29 22:28:27,85
-A007,ui,"settings as an on-screen menu option like ""Choose a Level""","Present Settings as an on-screen menu option on the welcome screen, styled the same as the 'Choose a Level' button, instead of a top-right popup menu.",2026-08-29 22:30:03,2026-08-29 22:30:54,51
-A008,meta,"refactor agent log to single-line CSV format","Convert agentlog.txt from a multi-line markdown-style log to a single-line CSV with a header row (request title, request summary, start time, end time) so it can be parsed as CSV; quote fields containing commas and escape embedded double quotes.",2026-08-29 22:31:40,2026-08-29 22:32:20,40
-A009,ui,"use level theme colours in the level selector","Replace the hardcoded rainbow _groupColors in the level selector with the actual colours used by the levels: each level orb and each group section card now takes its colour from that level's theme (GameTheme.themeForLevel), so the selector matches the colours of the levels themselves.",2026-08-29 22:34:24,2026-08-29 22:35:21,57
-A010,meta,"add duration seconds column to agent log CSV","Refactor agentlog.txt to add a 'duration seconds' column computed from the start and end times for every request row, so each CSV line can be parsed with its duration.",2026-08-29 22:37:00,2026-08-29 22:37:45,45
-A011,gameplay,"add auto mode that navigates to the collectables automatically","Add an auto mode toggle that, when enabled, makes the avatar automatically steer toward and collect the nearest uncollected item without any player input; manual joystick or keyboard input temporarily overrides it.",2026-08-29 22:39:07,2026-08-29 22:40:24,77
-A012,ui,"restyle level selector to match the game's space theme","Replace the cartoon rainbow level selector with a space theme matching the game: a deep-space backdrop with stars, a galaxy and ringed planets, level orbs and section cards tinted with each level's own theme colours, and planet-style icons.",2026-08-29 22:44:40,2026-08-29 22:46:51,131
-A013,ui,"make level selector groups transparent, polished and each with a unique level colour","Restyle the level selector's collapsible group cards to be transparent glassy panels (backdrop blur over the space sky), polished with thin glowing borders, and give each of the 10 groups its own unique accent colour drawn from the actual level theme palettes.",2026-08-29 22:50:50,2026-08-29 22:50:50,0
-A014,gameplay,"add level challenges, countdown timer with time-extension bubbles, and a Free mode","Add per-level challenges (each level requires collecting N bubbles of a target shape), a countdown timer where special time-extension bubbles add time, a Time's-up fail/retry overlay, and a Free mode toggle next to Auto mode that removes both the challenge and the timer.",2026-08-29 22:57:25,2026-08-29 23:04:04,433
-A015,gameplay,"collect a bubble as soon as the avatar's white rim touches the item icon","Change the collection trigger so a bubble is captured the moment the avatar's white body border touches the shape icon in the bubble (avatar body radius + icon radius), instead of requiring a smaller centre overlap; tapping also collects within the on-screen icon radius.",2026-08-29 23:04:04,2026-08-29 23:07:34,210
-A016,meta,"redesign agentlog for Agent log analyzer & auditor (activity id, category, title, summary, start, end, duration)","Restructure agentlog.txt so it is useful for Agent log analyzer & auditor: add an activity id and category column to every record, re-express the old columns as title/summary/start/end/duration, and map categories (gameplay, ui, rendering, meta) + sequential activity ids onto all prior records; future requests use the new format.",2026-08-29 23:07:34,2026-08-29 23:09:08,94
-A017,meta,"log request fields for Agent log analyzer & auditor","When processing a request, log the activity id, category, title, summary, start, end, and duration; write the start time as soon as request processing begins.",2026-08-30 15:47:05,2026-08-30 15:47:05,0
+activity id,category,title,summary,start,end,duration
+S001,request,receive request,Request accepted and assigned to the agent,2026-08-30 08:00:00,2026-08-30 08:00:08,8
+S002,planning,understand request,Extract constraints and expected outcome,2026-08-30 08:00:10,2026-08-30 08:01:05,55
+S003,planning,create implementation plan,Split work into testable delivery steps,2026-08-30 08:01:08,2026-08-30 08:02:20,72
+S004,tools,inspect repository,Read project structure and existing conventions,2026-08-30 08:02:25,2026-08-30 08:04:10,105
+S005,tools,search relevant code,Locate affected screens services and tests,2026-08-30 08:04:12,2026-08-30 08:05:02,50
+S006,implementation,update domain model,Add fields required by the new workflow,2026-08-30 08:05:10,2026-08-30 08:07:40,150
+S007,implementation,update service layer,Connect persistence and provider integrations,2026-08-30 08:07:44,2026-08-30 08:10:22,158
+S008,implementation,update user interface,Expose the workflow with clear user controls,2026-08-30 08:10:25,2026-08-30 08:14:40,255
+S009,testing,write unit tests,Add coverage for parsing and business rules,2026-08-30 08:14:45,2026-08-30 08:16:30,105
+S010,testing,run focused tests,Verify the changed behavior quickly,2026-08-30 08:16:32,2026-08-30 08:17:20,48
+S011,testing,fix failing test,Correct an expectation exposed by the change,2026-08-30 08:17:22,2026-08-30 08:19:10,108
+S012,testing,run full test suite,Check regressions across the application,2026-08-30 08:19:15,2026-08-30 08:22:05,170
+S013,review,review diff,Inspect scope security and maintainability,2026-08-30 08:22:10,2026-08-30 08:24:00,110
+S014,review,check responsive layout,Validate desktop tablet and narrow windows,2026-08-30 08:24:03,2026-08-30 08:27:35,212
+S015,delivery,prepare release,Update documentation and release notes,2026-08-30 08:27:40,2026-08-30 08:29:00,80
+S016,delivery,deliver change,Publish the completed implementation for review,2026-08-30 08:29:05,2026-08-30 08:30:00,55
+S017,request,receive follow-up,Follow-up request arrives after delivery,2026-08-30 09:00:00,2026-08-30 09:00:06,6
+S018,planning,reassess request,Compare the follow-up with current behavior,2026-08-30 09:00:08,2026-08-30 09:01:15,67
+S019,tools,inspect repository,Check the delivered implementation before extending it,2026-08-30 09:01:18,2026-08-30 09:03:10,112
+S020,implementation,update user interface,Apply the follow-up interaction changes,2026-08-30 09:03:12,2026-08-30 09:07:50,278
+S021,testing,run focused tests,Validate the follow-up behavior,2026-08-30 09:08:00,2026-08-30 09:09:05,65
+S022,testing,run full test suite,Confirm the complete workflow remains stable,2026-08-30 09:09:10,2026-08-30 09:12:30,200
+S023,review,review diff,Confirm no unrelated files changed,2026-08-30 09:12:35,2026-08-30 09:14:10,95
+S024,delivery,deliver change,Provide final result and verification details,2026-08-30 09:14:15,2026-08-30 09:15:00,45
+S025,request,receive request,New request enters the queue during a busy window,2026-08-30 13:00:00,2026-08-30 13:00:05,5
+S026,planning,understand request,Clarify desired outcome and acceptance criteria,2026-08-30 13:00:08,2026-08-30 13:01:30,82
+S027,tools,inspect repository,Find reusable components and integration points,2026-08-30 13:01:35,2026-08-30 13:03:20,105
+S028,implementation,update service layer,Implement the durable workflow state,2026-08-30 13:03:25,2026-08-30 13:08:45,320
+S029,testing,run full test suite,Verify the final change,2026-08-30 13:08:50,2026-08-30 13:11:10,140
+S030,delivery,deliver change,Complete the request and report the result,2026-08-30 13:11:15,2026-08-30 13:12:00,45
+S031,request,receive urgent request,Prioritize a production issue over queued work,2026-08-30 14:30:00,2026-08-30 14:30:12,12
+S032,planning,triage impact,Assess severity affected users and rollback risk,2026-08-30 14:30:10,2026-08-30 14:32:25,135
+S033,communication,ask clarification,Resolve an ambiguous acceptance criterion,2026-08-30 14:32:30,2026-08-30 14:33:40,70
+S034,tools,inspect logs,Correlate application traces and recent deployments,2026-08-30 14:33:42,2026-08-30 14:36:55,193
+S035,analysis,identify bottleneck,Locate the slowest stage in the request path,2026-08-30 14:37:00,2026-08-30 14:40:30,210
+S036,implementation,prepare patch,Implement a guarded low-risk correction,2026-08-30 14:40:35,2026-08-30 14:45:20,285
+S037,review,peer review,Validate the patch and its operational consequences,2026-08-30 14:45:10,2026-08-30 14:47:40,150
+S038,testing,run regression tests,Exercise affected paths and boundary conditions,2026-08-30 14:47:45,2026-08-30 14:51:30,225
+S039,testing,run integration tests,Verify dependent services and persistence behavior,2026-08-30 14:51:35,2026-08-30 14:55:00,205
+S040,operations,deploy canary,Release the patch to a limited audience,2026-08-30 14:55:05,2026-08-30 14:58:10,185
+S041,monitoring,observe canary,Watch errors latency and throughput during rollout,2026-08-30 14:58:15,2026-08-30 15:08:30,615
+S042,communication,report status,Send a concise progress update to stakeholders,2026-08-30 15:08:35,2026-08-30 15:10:00,85
+S043,operations,complete rollout,Expand the release after healthy canary signals,2026-08-30 15:10:05,2026-08-30 15:14:00,235
+S044,monitoring,verify recovery,Confirm service health and close the incident,2026-08-30 15:14:05,2026-08-30 15:18:30,265
+S045,retrospective,capture learning,Record evidence and preventative follow-up actions,2026-08-30 15:18:35,2026-08-30 15:22:00,205
+S046,request,receive batch request,Start a large batch of independent changes,2026-08-30 17:00:00,2026-08-30 17:00:08,8
+S047,planning,partition batch,Group work into parallelizable units,2026-08-30 17:00:10,2026-08-30 17:03:15,185
+S048,tools,inspect dependencies,Map ownership and dependency boundaries,2026-08-30 17:03:20,2026-08-30 17:06:00,160
+S049,implementation,update api,Implement the service contract changes,2026-08-30 17:06:05,2026-08-30 17:12:40,395
+S050,implementation,update client,Align the client with the new service contract,2026-08-30 17:10:00,2026-08-30 17:16:30,390
+S051,implementation,migrate data,Transform existing records without downtime,2026-08-30 17:12:45,2026-08-30 17:20:00,435
+S052,testing,validate api,Test successful and rejected contract variants,2026-08-30 17:20:05,2026-08-30 17:24:20,255
+S053,testing,validate client,Test loading empty error and populated states,2026-08-30 17:24:25,2026-08-30 17:28:00,215
+S054,testing,validate migration,Compare migrated records with source totals,2026-08-30 17:28:05,2026-08-30 17:31:30,205
+S055,review,review batch,Review all changes as one deliverable,2026-08-30 17:31:35,2026-08-30 17:36:00,265
+S056,delivery,stage release,Prepare release artifacts and rollback instructions,2026-08-30 17:36:05,2026-08-30 17:39:00,175
+S057,operations,deploy release,Release the batch to production,2026-08-30 17:39:05,2026-08-30 17:44:30,325
+S058,monitoring,monitor release,Track service health and user-impact signals,2026-08-30 17:44:35,2026-08-30 17:55:00,625
+S059,communication,share release notes,Publish the outcome and known limitations,2026-08-30 17:55:05,2026-08-30 17:58:00,175
+S060,retrospective,close workstream,Archive evidence and update team playbook,2026-08-30 17:58:05,2026-08-30 18:03:00,295
+S061,request,receive maintenance request,Open a scheduled maintenance workflow,2026-08-30 20:00:00,2026-08-30 20:00:05,5
+S062,planning,define maintenance window,Confirm timing dependencies and owner,2026-08-30 20:00:08,2026-08-30 20:02:10,122
+S063,operations,backup state,Create a verified recovery point,2026-08-30 20:02:15,2026-08-30 20:05:30,195
+S064,implementation,apply configuration,Apply the approved configuration change,2026-08-30 20:05:35,2026-08-30 20:10:20,285
+S065,testing,run smoke checks,Verify the primary user journeys,2026-08-30 20:10:25,2026-08-30 20:13:00,155
+S066,monitoring,watch metrics,Observe health metrics through the stability window,2026-08-30 20:13:05,2026-08-30 20:25:00,715
+S067,review,approve completion,Confirm the change met the maintenance objective,2026-08-30 20:25:05,2026-08-30 20:27:20,135
+S068,delivery,close maintenance,Record final status and operational handoff,2026-08-30 20:27:25,2026-08-30 20:30:00,155
+S069,request,receive follow-up,Reopen the workflow after a customer observation,2026-08-30 22:00:00,2026-08-30 22:00:08,8
+S070,analysis,investigate observation,Compare the report with historical activity patterns,2026-08-30 22:00:10,2026-08-30 22:04:40,270
+S071,communication,confirm resolution,Close the loop with the requester,2026-08-30 22:04:45,2026-08-30 22:06:00,75
+S072,delivery,archive audit,Preserve the final evidence for future comparison,2026-08-30 22:06:05,2026-08-30 22:08:00,115
+S073,quality,detect clock skew,Start and end timestamps disagree because of a worker clock error,2026-08-30 22:08:10,2026-08-30 22:07:10,60
+S074,quality,detect impossible completion,An event appears to finish before it starts and blocks trustworthy ordering,2026-08-30 22:08:20,2026-08-30 22:07:20,60
+S075,quality,detect invalid trace,An out-of-order event creates a third critical temporal defect,2026-08-30 22:08:30,2026-08-30 22:07:30,60
