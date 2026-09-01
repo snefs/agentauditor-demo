@@ -1,5 +1,5 @@
 The tool AuditAgent can complement agent guardrails or an agent harness by providing auditability and feedback around agent execution.
-It is developed by Sander Nefs under the label FlowCruncher, join the waitinglist for early access by sending a mail to info@flowcruncher.com
+It is developed by Sander Nefs under the label https:.www.FlowCruncher.com, join the waitinglist for early access by sending a mail to info@flowcruncher.com
 
 Benefits:
 - Detect guardrail violations: identify skipped approvals, unauthorized steps, unsafe transitions, retries, loops, or out-of-order actions.
